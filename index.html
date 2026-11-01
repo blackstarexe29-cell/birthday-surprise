@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little World For You 🎀</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: linear-gradient(160deg,#fff0f5,#ffe0ec,#fff5f8);
+  color: #8d4665;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 65px 20px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 12px auto;
+}
+
+button {
+  background: #e88caf;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  margin: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px #e88caf55;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.card {
+  background: #ffffffb8;
+  padding: 28px;
+  border-radius: 25px;
+  width: min(90%, 430px);
+  box-shadow: 0 8px 30px #d77b9c20;
+  margin: 15px auto;
+}
+
+.bow {
+  font-size: 55px;
+}
+
+.hidden {
+  display: none;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: min(95%, 450px);
+  margin: 20px auto;
+}
+
+.photo {
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 4px 15px #d77b9c22;
+}
+
+footer {
+  padding: 30px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<section>
+  <div class="bow">🎀</div>
+  <p>A little surprise made just for you</p>
+  <h1>Happy Birthday,<br>Beautiful Soul! ♡</h1>
+  <p>Today, the world became a little more special.</p>
+  <button onclick="document.getElementById('surprise').scrollIntoView({behavior:'smooth'})">
+    Open your surprise 💗
+  </button>
+  <p>Scroll down for a little magic ↓</p>
+</section>
+
+<section id="surprise">
+  <div class="card">
+    <h2>Hey You! 🌷</h2>
+    <p>
+      Even though we're miles apart,
+      I wanted to make something special
+      just for your birthday.
+    </p>
+    <p>So here's a tiny world dedicated to you. ♡</p>
+  </div>
+</section>
+
+<section>
+  <h2>Little Memory Corner 📸</h2>
+  <p>Some moments deserve their own little space.</p>
+  <div class="gallery">
+    <div class="photo">Our favourite memory ♡</div>
+    <div class="photo">That funny conversation 😂</div>
+    <div class="photo">An unforgettable moment 🌷</div>
+    <div class="photo">More memories to come ✨</div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="bow">💌</div>
+    <h2>A Little Letter</h2>
+    <p>There's something I wanted to tell you...</p>
+    <button onclick="document.getElementById('letter').classList.toggle('hidden')">
+      Open my letter ♡
+    </button>
+    <div id="letter" class="hidden">
+      <p>
+        You're genuinely one of the sweetest parts
+        of my online world.
+        Thank you for all the laughs, random talks
+        and little memories.
+      </p>
+      <p>
+        I hope this year brings you happiness,
+        beautiful surprises and everything
+        your heart wishes for.
+      </p>
+      <p>Never stop being YOU. 💗</p>
+      <p>With lots of love, your online twin ♡</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Make a Birthday Wish! 🕯️</h2>
+  <div style="font-size:90px" id="cake">🎂</div>
+  <p>Tap the cake to blow out your candles!</p>
+  <button onclick="blowCandles()">Make a wish ✨</button>
+  <p id="wish"></p>
+</section>
+
+<footer>
+  Made with love, just for you 🎀<br>
+  Our little world, forever special ♡
+</footer>
+
+<script>
+function blowCandles() {
+  document.getElementById("cake").textContent = "🍰";
+  document.getElementById("wish").textContent =
+    "May all your beautiful wishes come true! 💗";
+  hearts();
+}
+
+function hearts() {
+  const symbols = ["💗","💕","🎀","✨","🌸"];
+  for(let i=0;i<18;i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent =
+      symbols[Math.floor(Math.random()*symbols.length)];
+    heart.style.left = Math.random()*100+"vw";
+    heart.style.animationDuration = (3+Math.random()*4)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),7000);
+  }
+}
+
+setInterval(hearts,3000);
+</script>
+
+</body>
+</html>
