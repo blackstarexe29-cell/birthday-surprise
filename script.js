@@ -1,7 +1,7 @@
 
 // PROJECT BIRTHDAY.exe
 
-const birthdayDate = Date.now() + 10000;
+const birthdayDate = new Date("2026-11-08T00:00:00+05:30").getTime();
 
 function updateCountdown() {
   const now = Date.now();
