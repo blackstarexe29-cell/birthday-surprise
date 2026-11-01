@@ -1,0 +1,104 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --pink: #ff8fb1;
+  --light-pink: #ffe0eb;
+  --lavender: #d9c7ff;
+  --purple: #9272c9;
+  --dark: #49364f;
+  --white: #fffafd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.screen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 28px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.main-title {
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 900;
+  color: var(--purple);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin-top: 12px;
+}
+
+.cute-button {
+  background: var(--pink);
+  color: white;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  margin: 15px;
+  box-shadow: 0 5px 0 #e36f98;
+  transition: transform 0.2s;
+}
+
+.cute-button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.cat {
+  width: min(220px, 65vw);
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
