@@ -2,224 +2,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little World For You 🎀</title>
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Georgia, serif;
-  background: linear-gradient(160deg,#fff0f5,#ffe0ec,#fff5f8);
-  color: #8d4665;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-section {
-  padding: 65px 20px;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin: 20px 0;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-p {
-  line-height: 1.8;
-  max-width: 500px;
-  margin: 12px auto;
-}
-
-button {
-  background: #e88caf;
-  color: white;
-  border: none;
-  padding: 14px 25px;
-  border-radius: 30px;
-  font-size: 16px;
-  margin: 15px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px #e88caf55;
-}
-
-button:active {
-  transform: scale(.96);
-}
-
-.card {
-  background: #ffffffb8;
-  padding: 28px;
-  border-radius: 25px;
-  width: min(90%, 430px);
-  box-shadow: 0 8px 30px #d77b9c20;
-  margin: 15px auto;
-}
-
-.bow {
-  font-size: 55px;
-}
-
-.hidden {
-  display: none;
-}
-
-.heart {
-  position: fixed;
-  bottom: -30px;
-  animation: floatUp 6s linear forwards;
-  pointer-events: none;
-  z-index: 5;
-}
-
-@keyframes floatUp {
-  to {
-    transform: translateY(-110vh) rotate(30deg);
-    opacity: 0;
-  }
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  width: min(95%, 450px);
-  margin: 20px auto;
-}
-
-.photo {
-  background: white;
-  padding: 10px;
-  border-radius: 15px;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  box-shadow: 0 4px 15px #d77b9c22;
-}
-
-footer {
-  padding: 30px;
-  font-size: 14px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project BIRTHDAY.exe 🎀</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .screen {
+      background: linear-gradient(145deg,#fff0f6,#f3eaff,#fffafd);
+      min-height: 100vh;
+    }
+    .panel {
+      background: rgba(255,255,255,.8);
+      border: 2px solid #ffd1e2;
+      border-radius: 25px;
+      padding: 28px 20px;
+      width: min(100%, 520px);
+      box-shadow: 0 12px 35px #d9b4d755;
+    }
+    .emoji {
+      font-size: 75px;
+      margin: 20px;
+      display: block;
+    }
+    .small {
+      color: #9879a4;
+      font-size: .9rem;
+      margin: 12px;
+    }
+    .choices {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .photo {
+      background: white;
+      padding: 10px 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px #b99ab955;
+      transform: rotate(-2deg);
+    }
+    .photo:nth-child(even) { transform: rotate(2deg); }
+    .photo-placeholder {
+      background: #ffe0eb;
+      min-height: 120px;
+      display: grid;
+      place-items: center;
+      font-size: 45px;
+    }
+    .envelope {
+      background: #ffb6ce;
+      border-radius: 15px;
+      padding: 35px 20px;
+      margin: 20px 0;
+      cursor: pointer;
+      transition: .5s;
+    }
+    #letter {
+      max-height: 0;
+      overflow: hidden;
+      background: #fffafd;
+      border-radius: 12px;
+      transition: max-height 1s ease;
+    }
+    #letter.open {
+      max-height: 600px;
+      padding: 22px;
+    }
+    .curtains {
+      background: #a83d70;
+      color: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      font-size: 20px;
+    }
+    .video-box {
+      background: #30243b;
+      color: white;
+      border-radius: 15px;
+      padding: 35px 15px;
+      margin: 20px 0;
+    }
+    .wish {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 20px 0;
+    }
+    .heart {
+      position: absolute;
+      animation: float 3s infinite ease-in-out;
+      opacity: .6;
+      pointer-events: none;
+    }
+    .heart.one { top: 12%; left: 10%; }
+    .heart.two { top: 20%; right: 10%; animation-delay: 1s; }
+    .heart.three { bottom: 12%; left: 18%; animation-delay: 2s; }
+  </style>
 </head>
-
 <body>
 
-<section>
-  <div class="bow">🎀</div>
-  <p>A little surprise made just for you</p>
-  <h1>Happy Birthday,<br>Beautiful Soul! ♡</h1>
-  <p>Today, the world became a little more special.</p>
-  <button onclick="document.getElementById('surprise').scrollIntoView({behavior:'smooth'})">
-    Open your surprise 💗
-  </button>
-  <p>Scroll down for a little magic ↓</p>
-</section>
-
-<section id="surprise">
-  <div class="card">
-    <h2>Hey You! 🌷</h2>
-    <p>
-      Even though we're miles apart,
-      I wanted to make something special
-      just for your birthday.
-    </p>
-    <p>So here's a tiny world dedicated to you. ♡</p>
-  </div>
-</section>
-
-<section>
-  <h2>Little Memory Corner 📸</h2>
-  <p>Some moments deserve their own little space.</p>
-  <div class="gallery">
-    <div class="photo">Our favourite memory ♡</div>
-    <div class="photo">That funny conversation 😂</div>
-    <div class="photo">An unforgettable moment 🌷</div>
-    <div class="photo">More memories to come ✨</div>
-  </div>
-</section>
-
-<section>
-  <div class="card">
-    <div class="bow">💌</div>
-    <h2>A Little Letter</h2>
-    <p>There's something I wanted to tell you...</p>
-    <button onclick="document.getElementById('letter').classList.toggle('hidden')">
-      Open my letter ♡
-    </button>
-    <div id="letter" class="hidden">
-      <p>
-        You're genuinely one of the sweetest parts
-        of my online world.
-        Thank you for all the laughs, random talks
-        and little memories.
-      </p>
-      <p>
-        I hope this year brings you happiness,
-        beautiful surprises and everything
-        your heart wishes for.
-      </p>
-      <p>Never stop being YOU. 💗</p>
-      <p>With lots of love, your online twin ♡</p>
+  <!-- MIDNIGHT LOCK -->
+  <section class="screen" id="lock-screen">
+    <span class="emoji">🔒🐱</span>
+    <div class="panel">
+      <h1 class="main-title">A LITTLE SURPRISE...</h1>
+      <p class="subtitle">This gift is waiting for its special moment 🎀</p>
+      <h2 id="countdown">Loading countdown...</h2>
+      <p class="small">Unlocking at midnight • 8 November</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h2>Make a Birthday Wish! 🕯️</h2>
-  <div style="font-size:90px" id="cake">🎂</div>
-  <p>Tap the cake to blow out your candles!</p>
-  <button onclick="blowCandles()">Make a wish ✨</button>
-  <p id="wish"></p>
-</section>
+  <!-- CONSTRUCTION -->
+  <section class="screen hidden" id="construction-screen">
+    <span class="heart one">💗</span>
+    <span class="heart two">✨</span>
+    <span class="emoji floating">👷🏻‍♀️🐱</span>
+    <div class="panel">
+      <h1 class="main-title">GIFT UNDER CONSTRUCTION!</h1>
+      <p class="subtitle">Our tiny workers are preparing your surprise...</p>
+      <span class="emoji">🚧🎁🚧</span>
+      <p>Almost ready! Please wait, birthday girl! 💕</p>
+      <button class="cute-button" onclick="showScreen('ready-screen')">
+        CHECK MY GIFT
+      </button>
+    </div>
+  </section>
 
-<footer>
-  Made with love, just for you 🎀<br>
-  Our little world, forever special ♡
-</footer>
+  <!-- YES / NO -->
+  <section class="screen hidden" id="ready-screen">
+    <div class="panel">
+      <span class="emoji floating">🐱🎀</span>
+      <h1 class="main-title">YOUR SURPRISE IS READY!</h1>
+      <p class="subtitle">Are you ready for your surprise?</p>
+      <div class="choices">
+        <button class="cute-button" onclick="answerReady('yes')">YESSS! 💗</button>
+        <button class="cute-button" onclick="answerReady('no')">NO 🙈</button>
+      </div>
+      <p id="cat-reaction" class="subtitle">Choose wisely... 👀</p>
+    </div>
+  </section>
 
-<script>
-function blowCandles() {
-  document.getElementById("cake").textContent = "🍰";
-  document.getElementById("wish").textContent =
-    "May all your beautiful wishes come true! 💗";
-  hearts();
-}
+  <!-- SHOW INTRO -->
+  <section class="screen hidden" id="show-screen">
+    <div class="panel">
+      <span class="emoji">🎤🐱</span>
+      <h1 class="main-title">TOH CHALIYE SHURU KARTE HAIN!</h1>
+      <p class="subtitle">Ladies and gentlemen, welcome to the show! 😂</p>
+      <button class="cute-button" onclick="startShow()">OPEN THE CURTAINS 🎬</button>
+    </div>
+  </section>
 
-function hearts() {
-  const symbols = ["💗","💕","🎀","✨","🌸"];
-  for(let i=0;i<18;i++) {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.textContent =
-      symbols[Math.floor(Math.random()*symbols.length)];
-    heart.style.left = Math.random()*100+"vw";
-    heart.style.animationDuration = (3+Math.random()*4)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),7000);
-  }
-}
+  <!-- VIDEO -->
+  <section class="screen hidden" id="video-screen">
+    <div class="panel">
+      <h1 class="main-title">THE GRAND SHOW 🎬</h1>
+      <div class="curtains">🎭 THE CURTAINS ARE OPEN! 🎭</div>
+      <div class="video-box">
+        <span class="emoji">🎥</span>
+        <p>Your funny video will appear here!</p>
+        <p class="small">We'll add your video file in a later step.</p>
+      </div>
+      <button class="cute-button" onclick="showScreen('model-screen')">
+        NEXT ➜
+      </button>
+    </div>
+  </section>
 
-setInterval(hearts,3000);
-</script>
+  <!-- MODEL GALLERY -->
+  <section class="screen hidden" id="model-screen">
+    <div class="panel">
+      <span class="emoji">📸😼</span>
+      <h1 class="main-title">UFF! YE MODEL KAUN HAI?</h1>
+      <p class="subtitle">Beauty with a little bit of drama 😂</p>
+      <div class="photo-grid">
+        <div class="photo">
+          <div class="photo-placeholder">🐱</div>
+          <p>Memory 1</p>
+        </div>
+        <div class="photo">
+          <div class="photo-placeholder">💗</div>
+          <p>Memory 2</p>
+        </div>
+        <div class="photo">
+          <div class="photo-placeholder">✨</div>
+          <p>Memory 3</p>
+        </div>
+        <div class="photo">
+          <div class="photo-placeholder">🎀</div>
+          <p>Memory 4</p>
+        </div>
+      </div>
+      <button class="cute-button" onclick="showScreen('letter-screen')">
+        STORY TIME 💌
+      </button>
+    </div>
+  </section>
 
+  <!-- LETTER -->
+  <section class="screen hidden" id="letter-screen">
+    <div class="panel">
+      <span class="emoji">💌</span>
+      <h1 class="main-title">STORY TIME</h1>
+      <p class="subtitle">A little something from my heart...</p>
+      <div class="envelope" onclick="openLetter()">
+        <span class="emoji">🎀✉️</span>
+        <p>Tap to open your letter</p>
+      </div>
+      <div id="letter">
+        <h2>Dear Birthday Girl 💗</h2>
+        <p>Your personal letter will go here...</p>
+        <p>Some memories, some laughter, and a whole lot of love.</p>
+        <p>With love, your online twin 🐱</p>
+      </div>
+      <button class="cute-button" onclick="showScreen('wishes-screen')">
+        MY WISHES FOR YOU 🎂
+      </button>
+    </div>
+  </section>
+
+  <!-- WISHES -->
+  <section class="screen hidden" id="wishes-screen">
+    <div class="panel">
+      <span class="emoji floating">🎂🐱</span>
+      <h1 class="main-title">HAPPY BIRTHDAY!</h1>
+      <p class="wish">
+        May your life be filled with happiness, laughter,
+        beautiful memories and endless reasons to smile. 💗
+      </p>
+      <span class="emoji">🎉🎁🎉</span>
+      <button class="cute-button" onclick="showScreen('final-screen')">
+        ONE LAST SURPRISE? 👀
+      </button>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="screen hidden" id="final-screen">
+    <div class="panel">
+      <span class="emoji floating">😻💖</span>
+      <h1 class="main-title">THE END!</h1>
+      <p class="subtitle">But the memories stay forever. 🎀</p>
+      <p class="wish">You are one of a kind. Never forget that! 💗</p>
+      <button class="cute-button" onclick="replayBirthday()">REPLAY ↻</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
