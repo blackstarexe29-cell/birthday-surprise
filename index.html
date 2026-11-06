@@ -214,24 +214,42 @@
 
   <!-- LETTER -->
   <section class="screen hidden" id="letter-screen">
-    <div class="panel">
-      <span class="emoji">💌</span>
-      <h1 class="main-title">STORY TIME</h1>
-      <p class="subtitle">A little something from my heart...</p>
-      <div class="envelope" onclick="openLetter()">
-        <span class="emoji">🎀✉️</span>
-        <p>Tap to open your letter</p>
+  <div class="panel">
+
+    <span class="emoji">💌</span>
+    <h1 class="main-title">STORY TIME</h1>
+    <p class="subtitle">A little something from my heart...</p>
+
+    <!-- Animated Envelope -->
+    <div class="envelope" onclick="openLetter()">
+
+      <div class="envelope-art">
+        <div class="envelope-letter"></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <span class="envelope-bow">🎀</span>
+        <span class="envelope-heart">💗</span>
       </div>
-      <div id="letter">
-        <h2>Dear Birthday Girl 💗</h2>
-        <p>Your personal letter will go here...</p>
-        <p>Some memories, some laughter, and a whole lot of love.</p>
-        <p>With love, your online twin 🐱</p>
-      </div>
-      <button class="cute-button" onclick="showScreen('wishes-screen')">
-        MY WISHES FOR YOU 🎂
-      </button>
+
+      <p>Tap to open your letter</p>
     </div>
+
+    <!-- Personal Letter -->
+    <div id="letter">
+      <h2>Dear Birthday Girl 💗</h2>
+
+      <p>Your personal letter will go here...</p>
+
+      <p>Some memories, some laughter, and a whole lot of love.</p>
+
+      <p>With love, your online twin 🐱</p>
+    </div>
+
+    <button class="cute-button" onclick="showScreen('wishes-screen')">
+      MY WISHES FOR YOU 🎂
+    </button>
+
+  </div>
   </section>
 
   <!-- WISHES -->
