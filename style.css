@@ -120,3 +120,20 @@ button {
   display: block;
   border-radius: 12px;
 }
+/* Letter opening animation */
+#letter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-15px);
+  transition: max-height 1.2s ease,
+              opacity 0.8s ease,
+              transform 1s ease;
+}
+
+#letter.open {
+  max-height: 1000px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 20px;
+}
