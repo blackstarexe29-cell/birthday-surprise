@@ -63,6 +63,16 @@ function showScreen(screenId) {
   });
 
   document.getElementById(screenId)?.classList.remove("hidden");
+
+  const birthdayMusic = document.getElementById("birthdayMusic");
+
+  if (screenId === "show-screen") {
+    birthdayMusic?.pause();
+    introMusic.currentTime = 0;
+    introMusic.play().catch(() => {});
+  } else {
+    introMusic.pause();
+  }
 }
 
 function startShow() {
@@ -87,3 +97,4 @@ document.addEventListener("click", () => {
     birthdayMusic.play().catch(() => {});
   }
 }, { once: true });
+const introMusic = document.getElementById("introMusic");
