@@ -67,9 +67,13 @@ function startShow() {
   showScreen("video-screen");
 }
 
-function openLetter() {
-  document.getElementById("letter")?.classList.toggle("open");
-}
+ function openLetter() {
+  const envelope = document.querySelector(".envelope");
+  const letter = document.getElementById("letter");
+
+  envelope?.classList.toggle("open");
+  letter?.classList.toggle("open");
+ }
 
 function replayBirthday() {
   showScreen("welcome-screen");
