@@ -67,7 +67,7 @@ function showScreen(screenId) {
   birthdayMusic?.pause();
   introMusic?.pause();
 
-  if (screenId === "welcome-screen" || screenId.toLowerCase().includes("construction")) {
+  if (screenId === "lock-screen" || screenId.toLowerCase().includes("construction")) {
     birthdayMusic?.play().catch(() => {});
   }
 
