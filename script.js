@@ -98,10 +98,12 @@ function startShow() {
 const birthdayMusic = document.getElementById("birthdayMusic");
 const introMusic = document.getElementById("introMusic");
 const perfectMusic = document.getElementById("perfectMusic");
-function openLetter() {
+window.openLetter = function() {
   const envelope = document.querySelector(".envelope");
   const letter = document.getElementById("letter");
 
+  if (!envelope || !letter) return;
+
   envelope.classList.add("open");
   letter.classList.add("open");
-}
+};
