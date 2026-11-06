@@ -92,6 +92,4 @@ function showScreen(screenId) {
     perfectMusic?.pause();
   }
 }
-const birthdayMusic = document.getElementById("birthdayMusic");
-const introMusic = document.getElementById("introMusic");
 const perfectMusic = document.getElementById("perfectMusic");
