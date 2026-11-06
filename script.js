@@ -98,3 +98,10 @@ function startShow() {
 const birthdayMusic = document.getElementById("birthdayMusic");
 const introMusic = document.getElementById("introMusic");
 const perfectMusic = document.getElementById("perfectMusic");
+function openLetter() {
+  const envelope = document.querySelector(".envelope");
+  const letter = document.getElementById("letter");
+
+  envelope.classList.add("open");
+  letter.classList.add("open");
+}
