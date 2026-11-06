@@ -130,7 +130,83 @@ button {
               opacity 0.8s ease,
               transform 1s ease;
 }
+/* Animated envelope design */
 
+.envelope-art {
+  position: relative;
+  width: 190px;
+  height: 125px;
+  margin: 25px auto;
+  background: #bde8ff;
+  border: 4px solid #72bde5;
+  border-radius: 9px;
+  overflow: hidden;
+  perspective: 600px;
+}
+
+.envelope-letter {
+  position: absolute;
+  width: 82%;
+  height: 85%;
+  left: 9%;
+  bottom: -65%;
+  background: #fffaff;
+  border-radius: 6px;
+  z-index: 2;
+  transition: bottom 1s ease;
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  background: #83c8ec;
+  clip-path: polygon(0 0, 100% 0, 50% 65%);
+  transform-origin: top;
+  transition: transform 0.8s ease;
+  z-index: 4;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: #d9f3ff;
+  clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+  z-index: 3;
+}
+
+.envelope-bow {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 35px;
+  z-index: 5;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.envelope-heart {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  z-index: 5;
+}
+
+/* Opening animation */
+
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .envelope-letter {
+  bottom: 10%;
+}
+
+.envelope.open .envelope-bow {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+}
 #letter.open {
   max-height: 1000px;
   opacity: 1;
