@@ -64,37 +64,34 @@ function showScreen(screenId) {
 
   document.getElementById(screenId)?.classList.remove("hidden");
 
-  const birthdayMusic = document.getElementById("birthdayMusic");
+  birthdayMusic?.pause();
+  introMusic?.pause();
 
-  if (screenId === "show-screen") {
-    birthdayMusic?.pause();
+  if (screenId === "welcome-screen" || screenId.toLowerCase().includes("construction")) {
+    birthdayMusic?.play().catch(() => {});
+  }
+
+  else if (screenId === "show-screen") {
     introMusic.currentTime = 0;
     introMusic.play().catch(() => {});
-  } else {
-    introMusic.pause();
   }
-}
 
-function startShow() {
-  showScreen("video-screen");
-}
+  else if ([
+    "model-screen",
+    "letter-screen",
+    "wishes-screen",
+    "quiz-screen",
+    "final-screen"
+  ].includes(screenId)) {
+    if (perfectMusic?.paused) {
+      perfectMusic.play().catch(() => {});
+    }
+  }
 
- function openLetter() {
-  const envelope = document.querySelector(".envelope");
-  const letter = document.getElementById("letter");
-
-  envelope?.classList.toggle("open");
-  letter?.classList.toggle("open");
- }
-
-function replayBirthday() {
-  showScreen("welcome-screen");
+  else {
+    perfectMusic?.pause();
+  }
 }
 const birthdayMusic = document.getElementById("birthdayMusic");
-
-document.addEventListener("click", () => {
-  if (birthdayMusic && birthdayMusic.paused) {
-    birthdayMusic.play().catch(() => {});
-  }
-}, { once: true });
 const introMusic = document.getElementById("introMusic");
+const perfectMusic = document.getElementById("perfectMusic");
