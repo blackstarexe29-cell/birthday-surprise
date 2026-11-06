@@ -80,3 +80,10 @@ function startShow() {
 function replayBirthday() {
   showScreen("welcome-screen");
 }
+const birthdayMusic = document.getElementById("birthdayMusic");
+
+document.addEventListener("click", () => {
+  if (birthdayMusic && birthdayMusic.paused) {
+    birthdayMusic.play().catch(() => {});
+  }
+}, { once: true });
