@@ -163,11 +163,14 @@
     <div class="panel">
       <h1 class="main-title">THE GRAND SHOW 🎬</h1>
       <div class="curtains">🎭 THE CURTAINS ARE OPEN! 🎭</div>
+
       <div class="video-box">
-        <span class="emoji">🎥</span>
-        <p>Your funny video will appear here!</p>
-        <p class="small">We'll add your video file in a later step.</p>
+        <video controls playsinline preload="metadata" style="width:100%; max-width:100%; border-radius:16px;">
+          <source src="birthday-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
+
       <button class="cute-button" onclick="showScreen('model-screen')">
         NEXT ➜
       </button>
