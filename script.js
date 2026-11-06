@@ -92,6 +92,9 @@ function showScreen(screenId) {
     perfectMusic?.pause();
   }
 }
+function startShow() {
+  showScreen("video-screen");
+}
 const birthdayMusic = document.getElementById("birthdayMusic");
 const introMusic = document.getElementById("introMusic");
 const perfectMusic = document.getElementById("perfectMusic");
