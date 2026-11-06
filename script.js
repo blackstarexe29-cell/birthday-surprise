@@ -38,12 +38,14 @@ function answerReady(answer) {
   if (reaction) {
     if (answer === "yes") {
       reaction.innerHTML = `
-        <img src="happy-cat.gif" alt="Happy Dancing Cat"
+        <img src="happy-cat.gif" alt="Happy Cat"
         style="width:180px; max-width:80%; height:auto;">
         <p>YAYYYY! YOU SAID YES! 💗</p>
       `;
     } else {
       reaction.innerHTML = `
+        <img src="sad-bear.gif" alt="Crying Bear"
+        style="width:180px; max-width:80%; height:auto;">
         <p>NOOOO! 🥺</p>
         <p>Itna bhi kya attitude? Ek baar aur soch lo! 😂</p>
       `;
