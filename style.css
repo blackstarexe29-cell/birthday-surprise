@@ -208,7 +208,7 @@ button {
   transform: translateX(-50%) scale(0);
 }
 #letter.open {
-  max-height: 1000px;
+  max-height: 10000px;
   opacity: 1;
   transform: translateY(0);
   margin-top: 20px;
